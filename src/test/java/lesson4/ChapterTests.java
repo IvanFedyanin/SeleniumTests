@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ChapterTest {
+public class ChapterTests {
     WebDriver driver;
     private static final String BASE_URL = "https://bonigarcia.dev/selenium-webdriver-java/";
 
@@ -28,14 +28,21 @@ public class ChapterTest {
     }
 
     @Test
-    void oneTest() {
+    void countingSectionsTest() {
         WebElement textChapter = driver.findElement(By.xpath("(//div[@class ='card-body']//h5)[1]"));
         assertEquals("Chapter 3. WebDriver Fundamentals",textChapter.getText());
+    }
 
-
-
-
-
+    @Test
+    void ChptersLinkTest(){
+        String webFormUrl ="web-form.html";
+        driver
+                .findElement(By.xpath("//a[@href ='web-form.html']"))
+                .click();
+        String currentUrl = driver.getCurrentUrl();
+        WebElement titleText = driver.findElement(By.className("display-6"));
+        assertEquals(BASE_URL+webFormUrl, currentUrl);
+        assertEquals("Web form",titleText.getText());
     }
 
 
