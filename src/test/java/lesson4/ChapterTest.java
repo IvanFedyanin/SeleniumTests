@@ -2,7 +2,6 @@ package lesson4;
 
 
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -30,8 +29,8 @@ public class ChapterTest {
 
     @Test
     void oneTest() {
-        WebElement textCaptet = driver.findElement(By.xpath("(//div[@class ='card-body']//h5)[1]"));
-        assertEquals("Chapter 3. WebDriver Fundamentals",textCaptet.getText());
+        WebElement textChapter = driver.findElement(By.xpath("(//div[@class ='card-body']//h5)[1]"));
+        assertEquals("Chapter 3. WebDriver Fundamentals",textChapter.getText());
 
 
 
