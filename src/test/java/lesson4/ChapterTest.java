@@ -1,14 +1,18 @@
-package ui;
+package lesson4;
+
+
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FirstSimpleTest {
+public class ChapterTest {
     WebDriver driver;
     private static final String BASE_URL = "https://bonigarcia.dev/selenium-webdriver-java/";
 
@@ -23,21 +27,17 @@ public class FirstSimpleTest {
     void tearDown(){
         driver.quit();
     }
-    @Test
-    void openHomePage(){
-        String actualTitle = driver.getTitle();
-        assertEquals("Hands-On Selenium WebDriver with Java",actualTitle);
-    }
 
     @Test
-    void openWebForm(){
-        String webFormUrl ="web-form.html";
-        driver
-                .findElement(By.xpath("//a[@href ='web-form.html']"))
-                .click();
-        String currentUrl = driver.getCurrentUrl();
-        WebElement titleText = driver.findElement(By.className("display-6"));
-        assertEquals(BASE_URL+webFormUrl, currentUrl);
-        assertEquals("Web form",titleText.getText());
+    void oneTest() {
+        WebElement textCaptet = driver.findElement(By.xpath("(//div[@class ='card-body']//h5)[1]"));
+        assertEquals("Chapter 3. WebDriver Fundamentals",textCaptet.getText());
+
+
+
+
+
     }
+
+
 }
