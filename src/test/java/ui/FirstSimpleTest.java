@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FirstSimpleTest {
@@ -40,4 +43,20 @@ public class FirstSimpleTest {
         assertEquals(BASE_URL+webFormUrl, currentUrl);
         assertEquals("Web form",titleText.getText());
     }
+    @Test
+    void openAllLink() throws InterruptedException {
+        List<WebElement> capters =  driver.findElements(By.cssSelector("h5.card-title"));
+        for (WebElement capter : capters){
+            System.out.println(capter.getText());
+            List<WebElement> links = capter.findElements(By.xpath("./../a"));
+            for (WebElement link : links){
+                System.out.println(link.getText());
+                link.click();
+                Thread.sleep(1000);
+                driver.navigate().back();
+            }
+        }
+    }
+
+
 }
