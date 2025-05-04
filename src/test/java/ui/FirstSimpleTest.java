@@ -44,7 +44,7 @@ public class FirstSimpleTest {
         assertEquals("Web form",titleText.getText());
     }
     @Test
-    void openAllLink() throws InterruptedException {
+    void openAllLinkTest() throws InterruptedException {
         int linkQt =0;
         List<WebElement> capters =  driver.findElements(By.cssSelector("h5.card-title"));
         for (WebElement capter : capters){
@@ -60,6 +60,11 @@ public class FirstSimpleTest {
         }
         assertEquals(6, capters.size());
         assertEquals(27, linkQt);
+    }
+    @Test
+    void classPlusTest(){
+        List<WebElement> links = driver.findElements(By.cssSelector(".btn.btn-outline-primary.mb-2"));
+        assertEquals(27, links.size());
     }
 
 
