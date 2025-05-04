@@ -45,17 +45,21 @@ public class FirstSimpleTest {
     }
     @Test
     void openAllLink() throws InterruptedException {
+        int linkQt =0;
         List<WebElement> capters =  driver.findElements(By.cssSelector("h5.card-title"));
         for (WebElement capter : capters){
             System.out.println(capter.getText());
             List<WebElement> links = capter.findElements(By.xpath("./../a"));
+            linkQt += links.size();
             for (WebElement link : links){
                 System.out.println(link.getText());
                 link.click();
-                Thread.sleep(1000);
+                Thread.sleep(100);
                 driver.navigate().back();
             }
         }
+        assertEquals(6, capters.size());
+        assertEquals(27, linkQt);
     }
 
 
